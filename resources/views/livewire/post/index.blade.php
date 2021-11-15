@@ -9,6 +9,17 @@
         </tr>
     </thead>
     <tbody>
+    <tr wire:ignore>
+                    <td>
+                        <input type='text' name='title' wire:model='title' class='form-control' placeholder='Enter Title'>
+                                            </td>
+                    <td>
+                        <input type='text' wire:model='content' name='content' class='form-control' placeholder='Enter Content'>
+                                            </td>
+                    <td>
+                        <button wire:click='store' class='btn btn-success'>Save</button>
+                    </td>
+                </tr>
         @foreach($posts as $post)
         <tr>
             <td>{{$post->title}}</td>
