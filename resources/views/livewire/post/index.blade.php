@@ -22,7 +22,8 @@
                 </tr>
         @foreach($posts as $post)
         <tr>
-            <td>{{$post->title}}</td>
+            <td>{{$post->title}}       
+            </td>
             <td>{{$post->content}}</td>
             <td class="text-center">
                 <a href="{{ route('post.edit', $post->id)}}"class="btn btn-sm btn-primary">EDIT</a>

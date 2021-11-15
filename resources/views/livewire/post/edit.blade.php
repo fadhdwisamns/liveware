@@ -20,7 +20,7 @@
                     </span>
                     @enderror
             </div>
-            <button type="submit" class="btn btn-primary">UPDATE</button>
+            <button wire:click='update' class="btn btn-primary">UPDATE</button>
         </form>
     </div>
 </div>
