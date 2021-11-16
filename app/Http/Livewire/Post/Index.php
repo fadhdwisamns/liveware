@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class Index extends Component
 {
+    use WithPagination;
+
     public $title;
     public $content;
     public $postId;
@@ -40,7 +42,9 @@ class Index extends Component
             'title' => $this->title,
             'content' => $this->content, 
         ]);
-
+        
+        $this->dispatchBrowserEvent('alert', 
+                ['type' => 'success',  'message' => 'User Created Successfully!']);
         session()->flash('message' , 'Data Berhasil Disimpan');
 
         return redirect()->route('post.index');
