@@ -15,6 +15,7 @@ class Index extends Component
 
     public function render()
     {
+        
         return view('livewire.post.index', [
             'posts' => Post::latest()->paginate(5)
         ]);
@@ -45,13 +46,33 @@ class Index extends Component
         return redirect()->route('post.index');
 
     }
-    //  public function mount($id) {
-    //     $post = Post::find($id);
+    private function mount(){
+        $this->title=null;
+        $this->contact=null;
+    }
+    public function edit($id){
+        $post = Post::findOrFail($id);
 
-    //     if($post){
-    //         $this->postId = $post->id;
-    //         $this->title = $post->title;
-    //         $this->content = $post->content;
+        $this->postId = $post->id;
+        $this->title = $post->title;
+        $this->content = $post->content;
+
+        $this->updateMode = true;
+    }
+    // public function update(){
+    //     $this->validate([
+    //         'title' => 'required',
+    //         'content' => 'required'
+    //     ]);
+    //     if($this->postId){
+    //         $post = Post::find($this->postId);
+    //         $post->update([
+    //             'title' => $this->title,
+    //             'content' => $this->content,
+
+    //         ]);
+    //         $this->mount();
+    //         $this->updateMode = false;
     //     }
     // }
     public function update(){
