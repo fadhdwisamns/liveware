@@ -23,10 +23,15 @@
         @foreach($posts as $post)
         <tr wire:ignore>
             <td>
-           <input type="text" name='title' value="{{$post->title}}" >
-            </td>
+           <input type="text" name='title' value="{{$post->title}}"  class="form-control @error('title') is-invalid @enderror" >
+           @error('title')
+                        <span class="invalid-feedback">
+                                {{ $message }}
+                         </span>
+                    @enderror    
+        </td>
             <td>
-            <input type="text" name='content' value="{{$post->content}}" >
+            <input type="text" name='content' value="{{$post->content}}" class="form-control @error('content') is-invalid @enderror"  >
             </td>
             <td class="text-center">
                 <!-- <a href="{{ route('post.edit', $post->id)}}"class="btn btn-sm btn-success">Save</a> -->
