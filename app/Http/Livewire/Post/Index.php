@@ -49,17 +49,7 @@ class Index extends Component
 
         return redirect()->route('post.index');
 
-    }
-//    public function mount($id){
-//     $post = Post::find($id);
-        
-//     if($post) {
-//         $this->postId   = $post->id;
-//         $this->title    = $post->title;
-//         $this->content  = $post->content;
-//     }
-//    }
-    
+    }  
     public function update(){
         $this->validate([
             'title'   => 'required',
