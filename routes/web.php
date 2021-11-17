@@ -19,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::livewire('/' , 'post.index')->name('post.index');
 Route::livewire('/create' , 'post.create')->name('post.create');
-Route::livewire('/edit/{id}' , 'post.index')->name('post.index');
+Route::livewire('/edit/{id}' , 'post.edit')->name('post.edit');
 

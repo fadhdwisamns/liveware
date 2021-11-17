@@ -25,7 +25,7 @@
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
-   
+<script src="/js/app.js"></script>
 <script>
 window.addEventListener('alert', event => { 
              toastr[event.detail.type](event.detail.message, 

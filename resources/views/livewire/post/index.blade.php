@@ -24,7 +24,7 @@
         <tr wire:ignore>
         <input type="hidden" wire:model="postId">
             <td>
-           <input type="text" name='title' value="{{$post->title}}"  class="form-control @error('title') is-invalid @enderror" >
+           <input type="text" name='title' value="{{$post->title}}"  class="form-control @error('title') is-invalid @enderror">
            @error('title')
                         <span class="invalid-feedback">
                                 {{ $message }}
@@ -36,7 +36,7 @@
             <input type="text" name='content' value="{{$post->content}}" class="form-control @error('content') is-invalid @enderror"  >
             </td>
             <td>
-            <button wire:click="update({{ $post->id }})" class="btn btn-sm btn-success">Save</button>
+            <button wire:click.prevent="store" class="btn btn-sm btn-success">Save</button>
             <button wire:click="destroy({{ $post->id }})" class="btn btn-sm btn-danger">Delete</button>
             </td>
             <td class="text-center">
