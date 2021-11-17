@@ -67,6 +67,6 @@ class Index extends Component
         }
         session()->flash('message' , 'Data Berhasil Diperbarui');
 
-        return redirect()->route('post.index');
+        
     }
 }

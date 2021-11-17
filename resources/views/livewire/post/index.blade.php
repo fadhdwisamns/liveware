@@ -19,8 +19,10 @@
                         <button wire:click='store' class='btn btn-success'>Save</button>
                     </td>
                 </tr>
+        
         @foreach($posts as $post)
         <tr wire:ignore>
+        <input type="hidden" wire:model="postId">
             <td>
            <input type="text" name='title' value="{{$post->title}}"  class="form-control @error('title') is-invalid @enderror" >
            @error('title')
@@ -29,16 +31,20 @@
                          </span>
                     @enderror    
         </td>
+       
             <td>
             <input type="text" name='content' value="{{$post->content}}" class="form-control @error('content') is-invalid @enderror"  >
             </td>
+            <td>
+            <button wire:click="update({{ $post->id }})" class="btn btn-sm btn-success">Save</button>
+            <button wire:click="destroy({{ $post->id }})" class="btn btn-sm btn-danger">Delete</button>
+            </td>
             <td class="text-center">
-                <!-- <a href="{{ route('post.edit', $post->id)}}"class="btn btn-sm btn-success">Save</a> -->
-                <button wire:click="update({{ $post->id }})" class="btn btn-sm btn-success">Save</button>
-                <button wire:click="destroy({{ $post->id }})" class="btn btn-sm btn-danger">Delete</button>
+               
             </td>
         </tr>
         @endforeach
+        
         </tbody>
     </table>
     {{ $posts->links()}}
