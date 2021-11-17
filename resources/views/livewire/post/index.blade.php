@@ -9,6 +9,13 @@
     </thead>
     <tbody>
     <tr wire:ignore>
+    <div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
                     <td>
                         <input type='text' name='title' wire:model='title' class='form-control' placeholder='Enter Title'>
                                             </td>
