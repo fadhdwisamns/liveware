@@ -7,14 +7,19 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Http\Request;
 
-class Index extends Component
+class Index extends Component 
 {
     use WithPagination;
 
     public $title;
     public $content;
     public $postId;
+    public $post;
 
+    protected $rules = [
+        'post.title' => 'required',
+        'post.content' => 'required'
+    ];
     public function render()
     {
         
@@ -50,8 +55,8 @@ class Index extends Component
         return redirect()->route('post.index');
 
     }  
-    public function edit($id){
-        $post = Post::findOrFail($id);
+    public function edit($postId){
+        $post = Post::find($postId);
 
         if($post){
              $this->postId = $post->id;
